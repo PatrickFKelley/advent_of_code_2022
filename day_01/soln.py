@@ -4,7 +4,7 @@ import heapq
 # Reads input file and creates an array of total calories held by each elf
 
 with open('input.txt') as input:
-    totals = [sum(list(map(int, g))) for k, g 
+    elves = [sum(list(map(int, g))) for k, g 
                      in groupby(input.read().splitlines(), lambda x: x != '')
                      if k]
 
@@ -16,8 +16,8 @@ print(f'The maximum calories carried by an elf is {max(totals)}')
 
 top = 3
 
-negTotals = [-total for total in totals]
-heapq.heapify(negTotals)
+negElves = [-elf for elf in elves]
+heapq.heapify(negElves)
 
 topTotalSum = 0
 for _ in range(top):
